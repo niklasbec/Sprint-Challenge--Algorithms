@@ -77,6 +77,7 @@ Inside the `robot_sort` directory you'll find the `robot_sort.py` file. Open it 
   * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
   * You may define robot helper methods, as long as they follow all the rules.
 
+
 ##### Hints
 
 * Make sure you understand the problem and all of the rules! A solution that breaks the rules will not receive full credit.
