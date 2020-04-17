@@ -1,3 +1,20 @@
+#Okay: robot methods, if/and/or/not, ><, while/for/break/continue,
+#Bad: Vars, self, libraries or class methods, 
+"""
+This sounds like bubble sorting so thats the approach I am going to take
+So what I need to do is start the robot at index 0
+
+Then I tell him to compare the current index with the one to the right
+If the index on the right is a lower value, swap the values and move to the right
+If the Index on the right is a higher value or the same just move right
+I repeat this over and over till he reaches the end of the list
+I need to tell him to go all the way back to index 0 afterwards
+If there is one run without a swap the list is sorted I can probably check that with the light
+So light should start as off and whenever it makes a swap it gets turned on
+At the end of the list check the light, if its on we need another run, if its off were done
+
+Edit: Yeah.... did not end up doing that.
+"""
 class SortingRobot:
     def __init__(self, l):
         """
@@ -93,11 +110,19 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
-        # Fill this out
-        pass
+        while self.can_move_right() == True:
+            self.swap_item() # swap none for first item
+            while self.can_move_right() == True: #loop through to the right
+                self.move_right() 
+                if self.compare_item() == 1: #check if any item is smaller than the curr
+                    self.swap_item()
+            if self.can_move_right() == False:
+                while self.compare_item() != None: #find none
+                    self.move_left()
+                    if self.compare_item() == None: #continue looping right from none
+                        self.swap_item()
+                        self.move_right()
+
 
 
 if __name__ == "__main__":
